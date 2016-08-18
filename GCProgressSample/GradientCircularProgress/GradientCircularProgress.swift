@@ -12,8 +12,8 @@ internal var baseWindow: BaseWindow?
 
 public class GradientCircularProgress {
     
-    private var progressViewController: ProgressViewController?
-    private var progressView: ProgressView?
+    fileprivate var progressViewController: ProgressViewController?
+    fileprivate var progressView: ProgressView?
     
     public var isAvailable: Bool = false
     
@@ -124,7 +124,7 @@ extension GradientCircularProgress {
         cleanup(1.4, completionHandler: nil)
     }
     
-    public func dismiss(_ completionHandler: () -> Void) -> () {
+    public func dismiss(_ completionHandler: @escaping () -> Void) -> () {
         if !isAvailable {
             return
         }
@@ -227,7 +227,7 @@ extension GradientCircularProgress {
         cleanup(0.8, view: view, completionHandler: nil)
     }
     
-    public func dismiss(progress view: UIView, completionHandler: () -> Void) -> () {
+    public func dismiss(progress view: UIView, completionHandler: @escaping () -> Void) -> () {
         if !isAvailable {
             return
         }

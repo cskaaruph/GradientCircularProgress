@@ -88,7 +88,7 @@ public class AlertHelperKit {
     }
     
     // Alert with Callback Handler
-    public func showAlertWithHandler(_ parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
+    public func showAlertWithHandler(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
         
         let alertController: UIAlertController = buildAlertController(.alert, params: parameters) { buttonIndex in
             handler(buttonIndex)
@@ -100,7 +100,7 @@ public class AlertHelperKit {
     }
     
     // ActionSheet
-    public func showActionSheet(_ parent: UIViewController, parameters: Parameters, handler: (Int) -> ()) {
+    public func showActionSheet(_ parent: UIViewController, parameters: Parameters, handler: @escaping (Int) -> ()) {
         
         let alertController: UIAlertController = buildAlertController(.actionSheet, params: parameters) { buttonIndex in
             handler(buttonIndex)
@@ -125,7 +125,7 @@ public class AlertHelperKit {
     }
     
     // Build AlertController
-    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: (Int) -> ()) -> UIAlertController {
+    private func buildAlertController(_ style: UIAlertControllerStyle, params: Parameters, handler: @escaping (Int) -> ()) -> UIAlertController {
         
         let alertController = UIAlertController(title: params.title, message: params.message, preferredStyle: style)
         let destructivOffset = 1
