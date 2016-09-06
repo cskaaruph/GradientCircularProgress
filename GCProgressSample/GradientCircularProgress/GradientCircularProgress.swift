@@ -152,12 +152,12 @@ extension GradientCircularProgress {
                 animations: {
                     win.alpha = 0
                 },
-                completion: { [unowned self] finished in
-                    self.progressViewController = nil
+                completion: { [weak self] finished in
+                    self?.progressViewController = nil
                     win.isHidden = true
                     win.rootViewController = nil
                     baseWindow = nil
-                    self.isAvailable = false
+                    self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return
                     }
@@ -247,9 +247,9 @@ extension GradientCircularProgress {
                 animations: {
                     view.alpha = 0
                 },
-                completion: { [unowned self] finished in
+                completion: { [weak self] finished in
                     view.removeFromSuperview()
-                    self.isAvailable = false
+                    self?.isAvailable = false
                     guard let completionHandler = completionHandler else {
                         return
                     }
